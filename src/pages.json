@@ -1,0 +1,145 @@
+{
+	"pages": [ 
+		{
+			"path": "pages/Login/login",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/Login/password",
+			"style": {
+				"navigationBarTitleText": "密码修改"
+			}
+		},
+		{
+			"path": "pages/Login/regist",
+			"style": {
+				"navigationBarTitleText": "注册"
+			}
+		},
+		{
+			"path": "pages/Login/confirm",
+			"style": {
+				"navigationBarTitleText": "密码设置"
+			}
+		},
+		{
+			"path": "pages/Home/home",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "xxx"
+			}
+		},
+		{
+			"path": "pages/Mine/mine",
+			"style": {
+				"navigationBarTitleText": "我的"
+			}
+		},
+		{
+			"path": "pages/Mine/geren",
+			"style": {
+				"navigationBarTitleText": "个人中心"
+			}
+		},
+		{
+			"path": "pages/Mine/feedback",
+			"style": {
+				"navigationBarTitleText": "反馈"
+			}
+		}
+	],
+	"subPackages": [
+		{
+			"root": "subpages",
+			"pages": [
+				{
+					"path": "Clock/clock",
+					"style": {
+						"navigationBarTitleText": "打卡"
+					}
+				},
+				{
+					"path": "Clock/add",
+					"style": {
+						"navigationBarTitleText": "新增打卡"
+					}
+				},
+				{
+					"path": "Notice/notice",
+					"style": {
+						"navigationBarTitleText": "公告"
+					}
+				},
+				{
+					"path": "Notice/noticeMore",
+					"style": {
+						"navigationBarTitleText": "公告详情"
+					}
+				},
+				{
+					"path": "Apply/apply",
+					"style": {
+						"navigationBarTitleText": "请假审批"
+					}
+				},
+				{
+					"path": "Apply/addApply",
+					"style": {
+						"navigationBarTitleText": "添加申请"
+					}
+				},
+				{
+					"path": "Prevent/prevention",
+					"style": {
+						"navigationBarTitleText": "防控查看"
+					}
+				},
+				{
+					"path": "Prevent/preventMore",
+					"style": {
+						"navigationBarTitleText": "防控详情"
+					}
+				}
+			]
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "校园健康管理",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8",
+		"easycom": {
+			"autoscan": true,
+			"custom": {
+				"^uni-((?!(shadow-root|icons)).*)": "@dcloudio/uni-ui/lib/uni-$1/uni-$1.vue"   
+			}
+		}
+	},
+	"tabBar": {
+		"color": "#7A7E83",
+		"selectedColor": "#3cc51f",
+		"borderStyle": "black",
+		"backgroundColor": "#ffffff",
+		"list": [
+			{
+				"pagePath": "pages/Home/home",
+				"iconPath": "static/icon/shouye0.png",
+				"selectedIconPath": "static/icon/shouye1.png",
+				"text": "首页"
+			},
+			{
+				"pagePath": "pages/Mine/mine",
+				"iconPath": "static/icon/mine0.png",
+				"selectedIconPath": "static/icon/mine1.png",
+				"text": "我的"
+			}
+		]
+	}
+}
