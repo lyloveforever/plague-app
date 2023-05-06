@@ -26,8 +26,8 @@
                     <uni-easyinput type="text" v-model="data.formData.phoneNumber" placeholder="请输入电话号码" />
                 </uni-forms-item>
                 <uni-forms-item label="地址 : " name="address">
-                    <uni-data-select v-model="data.formData.address" :localdata="data.addressOption"
-                        placeholder="请选择地址" :clear="true"></uni-data-select>
+                    <uni-data-select v-model="data.formData.address" :localdata="data.addressOption" placeholder="请选择地址"
+                        :clear="true"></uni-data-select>
                 </uni-forms-item>
             </uni-forms>
         </view>
@@ -70,37 +70,39 @@ export default defineComponent({
                 uni.showModal({
                     content: "确认注册？",
                     success: () => {
-                        const params = {
-                            userName: data.formData.userName,
-                            userNumber: data.formData.userNumber,
-                            phoneNumber: data.formData.phoneNumber,
-                            password: data.formData.password,
-                            sex: data.formData.sex,
-                            age: data.formData.age,
-                            department: data.formData.department,
-                            address: data.formData.address,
-                        }
-                        adminRegist(params).then((res: any) => {
-                            if (res.success_code === 200) {
-                                uni.showToast({
-                                    title: "注册成功",
-                                    duration: 6000
-                                })
-                                uni.navigateTo({
-                                    url: '/pages/Login/login'
-                                })
-                            }else{
-                                uni.showToast({
-                                    title: res.message,
-                                    duration: 2000
-                                })
+                        if (res.confirm) {
+                            const params = {
+                                userName: data.formData.userName,
+                                userNumber: data.formData.userNumber,
+                                phoneNumber: data.formData.phoneNumber,
+                                password: data.formData.password,
+                                sex: data.formData.sex,
+                                age: data.formData.age,
+                                department: data.formData.department,
+                                address: data.formData.address,
                             }
-                        })
-                    },
-                    fail: () => {
+                            adminRegist(params).then((res: any) => {
+                                if (res.success_code === 200) {
+                                    uni.showToast({
+                                        title: "注册成功",
+                                        duration: 6000
+                                    })
+                                    uni.navigateTo({
+                                        url: '/pages/Login/login'
+                                    })
+                                } else {
+                                    uni.showToast({
+                                        title: res.message,
+                                        duration: 2000
+                                    })
+                                }
+                            })
+                        }
+                        },
+                        fail: () => {
 
-                    }
-                })
+                        }
+                    })
             })
 
         }

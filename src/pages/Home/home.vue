@@ -75,7 +75,7 @@ const getMore = () => {
   })
 }
 const fetchData = () => {
-  noticeList().then((res: any) => {
+  noticeList({page:1,size:10000}).then((res: any) => {
     if (res.success_code === 200) {
       res.message.forEach((item: any, index: any) => {
         if (index < 3) {

@@ -28,7 +28,7 @@ export default defineComponent({
       })
     }
     const fetchData = () =>{
-      preventList().then((res: any)=>{
+      preventList({page:1,size:10000}).then((res: any)=>{
         if(res.success_code === 200){
           data.infoList = res.message
         }

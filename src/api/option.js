@@ -1,6 +1,6 @@
 import request from '@/units/request.js'
 
-const BASE_URL = 'http://192.168.158.37:3000'
+const BASE_URL = 'http://localhost:3000'
 
 export function academyList(data){
     return request({

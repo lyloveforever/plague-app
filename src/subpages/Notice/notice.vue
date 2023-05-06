@@ -23,7 +23,7 @@ export default defineComponent({
       infoList: ref(),
     });
     const fetchData = () =>{
-      noticeList().then((res: any)=>{
+      noticeList({page:1,size:10000}).then((res: any)=>{
         if(res.success_code === 200){
           data.infoList = res.message
         }

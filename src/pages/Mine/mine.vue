@@ -27,7 +27,6 @@
       </view>
     </uni-card>
     <view class="button">
-      <button type="primary" @click="handleBang">绑定微信</button>
       <navigator url="/pages/Login/login" hover-class="navigator-hover">
         <view class="exit">
           <button type="warn">退出登录</button>

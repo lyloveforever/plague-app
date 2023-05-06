@@ -79,41 +79,42 @@ export default defineComponent({
                 uni.showModal({
                     content: "确认提交？",
                     success: () => {
-                        const params = {
-                            inschool: data.formData.inschool,
-                            address: data.formData.address,
-                            temperature: data.formData.temperature,
-                            symptom: data.formData.symptom,
-                            status: data.formData.status,
-                            name: data.formData.name,
-                            userNumber: data.userInfo.userNumber,
-                            department: data.userInfo.department,
-                            phoneNumber: data.userInfo.phoneNumber,
-                            startTime: new Date().toLocaleDateString(),
-                            checkTime: new Date().toLocaleString()
-                        }
-                        clockAdd(params).then((res: any) => {
-                            if (res.success_code === 200) {
-                                uni.showToast({
-                                    title: "打卡成功",
-                                    duration: 5000
-                                })
-                                uni.navigateTo({
-                                    url: '/subpages/Clock/clock'
-                                })
-                            }else{
-                                uni.showToast({
-                                    title: "打卡失败",
-                                    duration: 5000
-                                })
+                        if (res.confirm) {
+                            const params = {
+                                inschool: data.formData.inschool,
+                                address: data.formData.address,
+                                temperature: data.formData.temperature,
+                                symptom: data.formData.symptom,
+                                status: data.formData.status,
+                                name: data.formData.name,
+                                userNumber: data.userInfo.userNumber,
+                                department: data.userInfo.department,
+                                phoneNumber: data.userInfo.phoneNumber,
+                                startTime: new Date().toLocaleDateString(),
+                                checkTime: new Date().toLocaleString()
                             }
-                        })
+                            clockAdd(params).then((res: any) => {
+                                if (res.success_code === 200) {
+                                    uni.showToast({
+                                        title: "打卡成功",
+                                        duration: 5000
+                                    })
+                                    uni.navigateTo({
+                                        url: '/subpages/Clock/clock'
+                                    })
+                                } else {
+                                    uni.showToast({
+                                        title: "打卡失败",
+                                        duration: 5000
+                                    })
+                                }
+                            })
+                        }
+                        },
+                        fail: () => {
 
-                    },
-                    fail: () => {
-
-                    }
-                });
+                        }
+                    });
             })
         }
         const addressclick = () => {

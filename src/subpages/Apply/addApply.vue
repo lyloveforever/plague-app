@@ -70,8 +70,11 @@ export default defineComponent({
             form.value.validate().then((res: any) => {
                 uni.showModal({
                     content: "确认提交？",
-                    success: () => {
-                        const params = {
+                    cancelText: "取消",
+                    confirmText: "确认",
+                    success: (res) => {
+                        if(res.confirm){
+                            const params = {
                             type: data.formData.type,
                             leaveDate: data.formData.leaveDate,
                             returnDate: data.formData.returnDate,
@@ -81,7 +84,7 @@ export default defineComponent({
                             issue: data.formData.issue,
                             applyDate: new Date().toLocaleString(),
                             inschool: data.formData.inschool,
-                        }
+                          }
                         applyAdd(params).then((res: any) => {
                             if (res.success_code === 200) {
                                 uni.showToast({
@@ -98,6 +101,10 @@ export default defineComponent({
                                 })
                             }
                         })
+                        }else{
+                            console.log('用户点击取消');
+                        }
+                        
 
                     },
                     fail: () => {

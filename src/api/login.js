@@ -1,12 +1,12 @@
 import request from '@/units/request.js'
 
-const BASE_URL = 'http://192.168.158.37:3000'
+const BASE_URL = 'http://localhost:3000'
 
 export function adminLogin(data){
     return request({
         url : BASE_URL+ '/api/uniLogin',
         method :'post',
-        header: { 'content-type': 'application/x-www-form-urlencoded' },
+        //header: { 'content-type': 'application/x-www-form-urlencoded' },
         data : data
     })
 }
